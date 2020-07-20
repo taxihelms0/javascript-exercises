@@ -1,32 +1,20 @@
-const sumAll = function(firstNum, secondNum) {
-  let upperNum;
-  let lowerNum;
-  let total = -1; // initialize total to negative to throw error as default
-  
+const sumAll = function(min, max) {
+  if (min < 0 || max < 0 || typeof min !== "number" || typeof max !== "number")
+    return 'ERROR'; 
   // set lower and upper values based on which is larger
-  if(firstNum > secondNum){
-    lowerNum = secondNum;
-    upperNum = firstNum;
-    total = lowerNum; // start total at lower number
-  } else if (secondNum > firstNum){
-    lowerNum = firstNum;
-    upperNum = secondNum;
-    total = lowerNum; // start total at lower number
+  if(min > max){
+    const temp = min;
+    min = max;
+    max = temp;
   } 
-  // if total is negative throw error or either number is an array or string
-  if (total < 0 || firstNum.length > 1 || secondNum.length > 1) {
-    return 'ERROR';
+  let sum = 0;
+  // if sum is negative throw error or either number is an array or string
+  while (min <= max) {
+    // add min + 1 to the sum
+    sum += min; 
+    min++;
   }
-  else {
-    while (lowerNum < upperNum) {
-      // add lowerNumer + 1 to the total
-      total += lowerNum + 1; 
-      lowerNum++;
-    }
-    return total
-  }
-  
-  
+  return sum
 }
 
 module.exports = sumAll
