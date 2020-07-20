@@ -10,7 +10,7 @@ const reverseString = function(str) {
   //   newStr += str[str.length - 1 - i]; 
   // }
 
-  // using recursion...
+  // using recursion v1
   if(str === ""){ // terminal case
     return "";
   } else {
